@@ -5,7 +5,7 @@ from game import Game
 from ga import Population, Individual
 
 # --- Modo de Visualización (se puede cambiar durante la ejecución) ---
-visualize_each_generation = True
+visualize_each_generation = False
 
 # --- Constantes del Algoritmo Genético ---
 NUM_GENERATIONS = 50
