@@ -265,16 +265,43 @@ class Game:
         self.bombs.empty()
         self.normal_speed()
 
-        self.defender = Defender()
-        self.defender.rect.x = random.randint(0, SCREEN_WIDTH - self.defender.rect.width)
+
+        #self.defender = Defender()
+        #self.defender.rect.x = random.randint(0, SCREEN_WIDTH - self.defender.rect.width)
+        #self.all_sprites.add(self.defender)
+
+        self.defender = Defender(self)
         self.all_sprites.add(self.defender)
 
-        invader_x = random.randint(0, SCREEN_WIDTH - 40)
+        #Añadir 5 invasores 
+        num_invaders = 5 
+        invader_spacing = SCREEN_WIDTH // (num_invaders + 1)
+
+        for i in range(num_invaders):
+            # Posicion x inicial de cada invasor
+            start_x = (i + 1) * invader_spacing - 20  # Centrar el invasor
+
+            # Posicion y inicial aleatoria dentro de un rango
+            start_y = random.randint(50, 200)
+
+            # Direccion aleatoria
+            direction = random.choice([-1, 1])
+
+            self.invader = Invader(self, start_x, start_y, direction)
+            self.all_sprites.add(self.invader)
+            self.invaders.add(self.invader)
+
+            # Resetear el reloj
+            self.clock.tick()
+            self.game_speed = 60
+
+
+        """ invader_x = random.randint(0, SCREEN_WIDTH - 40)
         invader_y = random.randint(50, 200)
         invader_direction = random.choice([-1, 1])
         self.invader = Invader(invader_x, invader_y, invader_direction)
         self.all_sprites.add(self.invader)
-        self.invaders.add(self.invader)
+        self.invaders.add(self.invader) """
 
     def game_step(self, action):
         """
