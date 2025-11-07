@@ -10,7 +10,7 @@ visualize_each_generation = True
 
 # --- Parámetros del Algoritmo Genético ---
 NUM_GENERATIONS = 50       # Número de ciclos de evolución.
-POPULATION_SIZE = 100      # Número de IAs en cada generación.
+POPULATION_SIZE = 500      # Número de IAs en cada generación.
 MUTATION_RATE = 0.2         # Probabilidad de que una IA sufra una mutación aleatoria.
 MUTATION_STRENGTH = 10.0   # Magnitud del cambio durante una mutación.
 
